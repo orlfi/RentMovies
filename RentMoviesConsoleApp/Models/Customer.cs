@@ -28,8 +28,6 @@ public class Customer
 
         foreach (var each in _rentals)
         {
-            double thisAmount = each.GetCharge();
-
             // добавить очки для активного арендатора
             frequentRenterPoints++;
 
@@ -39,8 +37,8 @@ public class Customer
                 frequentRenterPoints++;
 
             //показать результаты для этой аренды
-            result += "\t" + each.GetMovie().GetTitle() + "\t" + thisAmount + "\r\n";
-            totalAmount += thisAmount;
+            result += "\t" + each.GetMovie().GetTitle() + "\t" + each.GetCharge() + "\r\n";
+            totalAmount += each.GetCharge();
         }
 
         //добавить нижний колонтитул
