@@ -24,7 +24,7 @@ public class Customer
     {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        string result = "Учет аренды для " + GetName() + "\n";
+        string result = "Учет аренды для " + GetName() + "\r\n";
 
         foreach (var each in _rentals)
         {
@@ -39,12 +39,12 @@ public class Customer
                 frequentRenterPoints++;
 
             //показать результаты для этой аренды
-            result += "\t" + each.GetMovie().GetTitle() + "\t" + thisAmount + "\n";
+            result += "\t" + each.GetMovie().GetTitle() + "\t" + thisAmount + "\r\n";
             totalAmount += thisAmount;
         }
 
         //добавить нижний колонтитул
-        result += "Сумма задолженности составляет " + totalAmount + "\n";
+        result += "Сумма задолженности составляет " + totalAmount + "\r\n";
         result += "Вы заработали " + frequentRenterPoints + " очков за активность";
         return result;
     }

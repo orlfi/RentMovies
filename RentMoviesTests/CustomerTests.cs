@@ -16,7 +16,6 @@ public class CustomerTests
 	Король лев	1,5
 Сумма задолженности составляет 12,5
 Вы заработали 4 очков за активность";
-
         var movies = new List<Movie>()
         {
             new Movie("Рембо", Movie.NEW_RELEASE),
