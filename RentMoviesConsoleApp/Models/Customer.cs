@@ -28,7 +28,7 @@ public class Customer
 
         foreach (var each in _rentals)
         {
-            double thisAmount = AmountFor(each);
+            double thisAmount = each.GetCharge();
 
             // добавить очки для активного арендатора
             frequentRenterPoints++;
@@ -47,31 +47,5 @@ public class Customer
         result += "Сумма задолженности составляет " + totalAmount + "\r\n";
         result += "Вы заработали " + frequentRenterPoints + " очков за активность";
         return result;
-    }
-
-    private double AmountFor(Rental each)
-    {
-        double thisAmount = 0;
-
-        //определить сумму для каждой строки
-        var code = each.GetMovie().GetPriceCode();
-        switch (code)
-        {
-            case Movie.REGULAR:
-                thisAmount += 2;
-                if (each.GetDaysRented() > 2)
-                    thisAmount += (each.GetDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += each.GetDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if (each.GetDaysRented() > 3)
-                    thisAmount += (each.GetDaysRented() - 3) * 1.5;
-                break;
-        }
-
-        return thisAmount;
     }
 }
